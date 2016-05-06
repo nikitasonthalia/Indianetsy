@@ -15,3 +15,27 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+ function displayNextImage() {
+              x = (x === images.length - 1) ? 0 : x + 1;
+              document.getElementById("img").src = images[x];
+          }
+
+          function displayPreviousImage() {
+              x = (x <= 0) ? images.length - 1 : x - 1;
+              document.getElementById("img").src = images[x];
+          }
+
+          function startTimer() {
+              setInterval(displayNextImage, 3000);
+          }
+
+          var images = [], x = -1;
+          images[0] = "/assets/Bastar-tribal-art.png";
+          images[1] = "/assets/chess-sets.png";
+          images[2] = "/assets/Dhokra-jewelry.png";
+		  images[3] = "/assets/Engravedfolders.png";
+          images[4] = "/assets/kutch-bags.png";
+          images[5] = "/assets/palm-leaf.png";
+		  images[6] = "/assets/patachitra-jars.png";
+		  

@@ -50,8 +50,50 @@ body {
 }
 
 .jumbotron {
-  background-image: url('https://dl.dropboxusercontent.com/s/n8w9l6s88551dfq/jumbotron.jpg');
+  /*background-image: url('https://dl.dropboxusercontent.com/s/n8w9l6s88551dfq/jumbotron.jpg');*/
   h1, h2 {
     font-family: guardian-egyptt, georgia, serif;
   }
 }
+
+ /* CSS for Contact Page */
+
+    .one {font-size: 10pt; font-family: 'Arial','Helvetica';font-weight:600;}
+    .five{color:black; font-size: 11pt; font-weight:900;}
+   
+   /*Heading*/
+   
+  .two
+    {
+	
+      	text-align:center; 
+      	font-size: 20pt; 
+      	font-weight:900;
+      	color: #d5641c;
+      	
+      	font-family: guardian-egyptt, georgia, serif;
+  
+    }
+    
+    .footer1
+      {
+        /*position:absolute;*/
+        margin-bottom: 0px; 
+        text-align:center;
+      }
+      
+      .three
+      {
+        float: right;
+        margin-right: 60px; 
+      }
+      
+      /*#img--listings.css.scss
+      {
+         margin-top: 30px; 
+        margin-left: 50px;
+        
+      }*/
+      
+  
+  
