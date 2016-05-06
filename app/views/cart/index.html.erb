@@ -1,0 +1,30 @@
+<h1>
+<p>Your Cart</p></h1>
+<div>
+    <% if @cart.empty? %>
+        <p>Your cart is empty.</p>
+    <%else%>
+        <%= link_to 'Empty cart', cart_clear_path%>
+    <%end  %>
+    <br><br><br>
+</div>
+<% total=0 %>
+<div>
+    <ul>
+        <% @cart.each do | id,quantity | %>
+        <% listing = Listing.find_by_id(id) %>
+    <li>
+        <%= link_to listing.name , listing %><br>
+        <%= listing.description %><br>
+        <%= image_tag(listing.image.url, size: "20x20") %><br>
+        <%= number_to_currency(listing.price) %><br>
+        Quantity: <%= quantity %><br>
+        <% total+=quantity*listing.price %><br>
+        <%= link_to "Buy It Now", new_listing_order_path(listing), class: "btn btn-primary", data: { no_turbolink: true } %>
+    </li>
+    <% end %>
+   <b>Total:  <%= number_to_currency(total,:unit=>'$') %></b>
+    </ul>
+</div>
+
+

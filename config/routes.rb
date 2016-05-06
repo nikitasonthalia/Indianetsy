@@ -11,6 +11,9 @@ Etsydemo::Application.routes.draw do
   get 'sales' => "orders#sales"
   get 'purchases' => "orders#purchases"
 
+  get '/cart' => 'cart#index'
+  get '/cart/clear' => 'cart#clearCart'
+  get '/cart/:id' => 'cart#add'
   root 'listings#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
