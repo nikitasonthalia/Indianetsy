@@ -3,11 +3,13 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
 
   def sales
-    @orders = Order.all.where(seller: current_user).order("created_at DESC")
+    @orders = Order.paginate(:page => params[:page], :per_page => 1).where(seller: current_user).order("created_at DESC")
+  #  @orders = Order.all.where(seller: current_user).order("created_at DESC")
   end
 
   def purchases
-    @orders = Order.all.where(buyer: current_user).order("created_at DESC")
+    @orders = Order.paginate(:page => params[:page], :per_page => 1).where(buyer: current_user).order("created_at DESC")
+   # @orders = Order.all.where(buyer: current_user).order("created_at DESC")
   end
 
   # GET /orders/new
@@ -50,7 +52,8 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to root_url, notice: "Thanks for ordering!" }
+        Usermailer.welcome_email(current_user,@listing,@order)
+        format.html { redirect_to root_url, notice: "Thanks for ordering! You got Email!" }
         format.json { render action: 'show', status: :created, location: @order }
       else
         format.html { render action: 'new' }

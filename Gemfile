@@ -16,6 +16,7 @@ gem "figaro"
 gem 'devise'
 gem 'stripe'
 gem 'json', '1.8.1'
+gem 'will_paginate', '~>3.0.5'
 
 group :production do
   gem 'pg'

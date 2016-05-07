@@ -20,6 +20,7 @@
       <td class="center"><%= order.created_at.strftime("%B %-d, %Y") %></td>
     </tr>
   <% end %>
+  <%= will_paginate @orders, :page_links => true, class:"apple_pagination" %>
 </table>
 
 <br>

@@ -4,7 +4,9 @@ class ListingsController < ApplicationController
   before_filter :check_user, only: [:edit, :update, :destroy]
 
   def seller
-    @listings = Listing.where(user: current_user).order("created_at DESC")
+    @listings = Listing.paginate(:page => params[:page], :per_page => 1).where(user: current_user).order("created_at DESC")
+
+    # @listings = Listing.where(user: current_user).order("created_at DESC")
   end
 
   # GET /listings
