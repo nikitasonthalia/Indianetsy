@@ -16,7 +16,7 @@
       <li><%= link_to "About", pages_about_path %></li>
       <li><%= link_to "Contact", pages_contact_path %></li>
       <li><%= link_to "Cart", cart_path %></li>
-      <li>
+      <li class="six">
         <%= form_tag(search_path, :method => "get", id: "search-form") do %>
         <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
         <%= submit_tag "Search" %>
