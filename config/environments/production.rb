@@ -79,5 +79,26 @@ Etsydemo::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # Required for Devise. Remember to change localhost:3000 to actual application host
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  # config.action_mailer.default_url_options = { :host => 'gmail.com' }
+  config.action_mailer.default_url_options = { :host => "http://www.gmail.com " }
+  # # ActionMailer Config
+  # # Setup for production - deliveries, no errors raised
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.raise_delivery_errors = false
+  # config.action_mailer.default :charset => "utf-8"
+  
+
+  # # SMTP settings for gmail
+  # config.action_mailer.smtp_settings = {
+  #   address: "smtp.gmail.com",
+  #   port: 587,
+  #   domain: "gmail.com",
+  #   authentication: "plain",
+  #   enable_starttls_auto: true,
+  #   user_name: ENV["GMAIL_USERNAME"],
+  #   password: ENV["GMAIL_PASSWORD"]
+  # }
+  # ActionMailer::Base.default_content_type = "text/html"
 end
+

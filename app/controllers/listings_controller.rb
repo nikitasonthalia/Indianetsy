@@ -3,6 +3,23 @@ class ListingsController < ApplicationController
   before_filter :authenticate_user!, only: [:seller, :new, :create, :edit, :update, :destroy]
   before_filter :check_user, only: [:edit, :update, :destroy]
 
+  def search
+      if params[:search]
+        @listings= Listing.search(params[:search]).order("created_at DESC")
+        respond_to do |format|
+          if @listings
+            format.html {render action: 'index'}
+            format.json { render json: @listings, status: :unprocessable_entity }
+          else
+            format.html {render action: 'index', notice: 'No search found.'}
+            format.json { render json: @listings, status: :unprocessable_entity }
+          end
+        end
+      end
+    
+  end
+  
+  
   def seller
     @listings = Listing.paginate(:page => params[:page], :per_page => 1).where(user: current_user).order("created_at DESC")
 

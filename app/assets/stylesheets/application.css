@@ -12,3 +12,16 @@
  *= require_tree .
  */
  
+body{
+    background-color: navy;
+    color: navy;
+    font-family: Helvetica;
+    
+}
+h1{
+    font-size: 120%;
+}
+
+.img{
+    width: 150%;
+}

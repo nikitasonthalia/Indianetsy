@@ -15,4 +15,10 @@ class Listing < ActiveRecord::Base
 
   belongs_to :user
   has_many :orders
+  
+  
+  def self.search(search)
+  where("name LIKE ?", "%#{search}%") 
+  where("description LIKE ?", "%#{search}%")
+  end
 end

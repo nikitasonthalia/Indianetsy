@@ -32,27 +32,28 @@ class OrdersController < ApplicationController
     token = params[:stripeToken]
 
     
-    # begin
+    begin
       
     
-    #   charge = Stripe::Charge.create(
-    #     :amount => (@listing.price * 100).floor,
-    #     :currency => "usd",
-    #     :card => token
-    #     )
-    # rescue Stripe::CardError => e
-    #   flash[:danger] = e.message
-    # end
+      charge = Stripe::Charge.create(
+        :amount => (@listing.price * 100).floor,
+        :currency => "usd",
+        :card => token
+        )
+    rescue Stripe::CardError => e
+      flash[:danger] = e.message
+    end
 
-    # transfer = Stripe::Transfer.create(
-    #   :amount => (@listing.price * 95).floor,
-    #   :currency => "usd",
-    #   :recipient => @seller.recipient
-    #   )
+    transfer = Stripe::Transfer.create(
+      :amount => (@listing.price * 95).floor,
+      :currency => "usd",
+      :recipient => @seller.recipient
+      )
 
     respond_to do |format|
       if @order.save
-        Usermailer.welcome_email(current_user,@listing,@order)
+        #UserMailer.welcome_email(current_user).deliver
+      
         format.html { redirect_to root_url, notice: "Thanks for ordering! You got Email!" }
         format.json { render action: 'show', status: :created, location: @order }
       else

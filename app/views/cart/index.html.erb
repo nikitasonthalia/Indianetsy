@@ -27,7 +27,7 @@
         <td><%= number_to_currency(listing.price) %></td>
        <td> <%= link_to listing.name , listing %></td>
        <td><%= listing.description %></td> 
-        <td><%= image_tag(listing.image.url, size: "60x40") %></td>
+        <td><%= image_tag(listing.image.url, size: "60x40")  %></td>
         
         <td><%= quantity %></td>
         <% total+=quantity*listing.price %><br>
