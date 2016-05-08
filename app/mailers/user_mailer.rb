@@ -4,8 +4,8 @@ class UserMailer < ActionMailer::Base
    
   def welcome_email(user)
      @user = user
-     @url  = 'http://www.gmail.com'
-     mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+     
+     mail(to: @user.email, body: "ajkbdkwa", content_type: "text/plain", subject: 'Welcome to My Awesome Site')
   end
    
 end

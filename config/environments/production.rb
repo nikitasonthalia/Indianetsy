@@ -80,7 +80,7 @@ Etsydemo::Application.configure do
 
   # Required for Devise. Remember to change localhost:3000 to actual application host
   # config.action_mailer.default_url_options = { :host => 'gmail.com' }
-  config.action_mailer.default_url_options = { :host => "http://www.gmail.com " }
+ # config.action_mailer.default_url_options = { :host => 'https://final-project-ror-etsy-nikitasonthalia.c9users.io/' }
   # # ActionMailer Config
   # # Setup for production - deliveries, no errors raised
   # config.action_mailer.delivery_method = :smtp
@@ -98,7 +98,14 @@ Etsydemo::Application.configure do
   #   enable_starttls_auto: true,
   #   user_name: ENV["GMAIL_USERNAME"],
   #   password: ENV["GMAIL_PASSWORD"]
-  # }
-  # ActionMailer::Base.default_content_type = "text/html"
+  # 
+  ActionMailer::Base.default_content_type = "text/html"
+  ActionMailer::Base.smtp_settings = {
+  address:        'smtp-relay.gmail.com', # default: localhost
+  port:           '25',                  # default: 25
+  user_name:      ENV["GMAIL_USERNAME"],
+  password:       ENV["GMAIL_PASSWORD"],
+  authentication: :plain                 # :plain, :login or :cram_md5
+}
 end
 

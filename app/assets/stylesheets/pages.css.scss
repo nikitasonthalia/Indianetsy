@@ -1,8 +1,11 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
 @import "bootstrap";
 
+body {
+
+  color: #333333;
+  font-family: Arial, Helvetica, sans-serif;
+}
 .download {
   h1, h2, h3, h4, h5, h6 {
     line-height: 1;
@@ -15,8 +18,8 @@
     text-align: center;
     font-weight: normal;
     color: #0192B5;
-  }
 
+  }
 
   p {
     font-size: 1.1em;
@@ -26,9 +29,15 @@
     color: #730E15;
   }
 
+  .center {
+    text-align: center;
+  }
 
-  image: url('http://www.wired.com/wp-content/uploads/2015/03/Etsy_Etsy-Labs-Brooklyn.jpg');
-  h1, h2 {
-    font-family: guardian-egyptt, georgia, serif;
+
+  .about_image {
+    background_image:url('https://i4tsk12in2b2y7uts14c528g-wpengine.netdna-ssl.com/wp-content/uploads/2015/12/etsy.jpg');
+    h1, h2 {
+      font-family: guardian-egyptt, georgia, serif;
+    }
   }
 }
