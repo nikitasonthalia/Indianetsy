@@ -28,7 +28,7 @@ Etsydemo::Application.configure do
   config.assets.debug = true
 
   # Required for Devise gem
-  config.action_mailer.default_url_options = { :host => 'final-project-ror-etsy-nikitasonthalia.c9users.io' }
+  #config.action_mailer.default_url_options = { :host => 'final-project-ror-etsy-nikitasonthalia.c9users.io' }
   # config.action_mailer.delivery_method = :smtp
   # # change to true to allow email to be sent during development
   # config.action_mailer.perform_deliveries = false
@@ -44,7 +44,7 @@ Etsydemo::Application.configure do
     domain:         'gmail.com',
     user_name:      "nikita.sonthalia@gmail.com",
     password:       "Vikash1410",
-    authentication: 'login',              # :plain, :login or :cram_md5
+    authentication: :login,              # :plain, :login or :cram_md5
     enable_starttls_auto: true
   }
 end

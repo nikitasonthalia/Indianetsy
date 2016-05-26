@@ -52,7 +52,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        UserMailer.welcome_email(current_user).deliver
+        #UserMailer.welcome_email(current_user).deliver
       
         format.html { redirect_to root_url, notice: "Thanks for ordering! You got Email!" }
         format.json { render action: 'show', status: :created, location: @order }

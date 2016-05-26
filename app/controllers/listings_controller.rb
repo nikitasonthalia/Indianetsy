@@ -7,12 +7,13 @@ class ListingsController < ApplicationController
       if params[:search]
         @listings= Listing.search(params[:search]).order("created_at DESC")
         respond_to do |format|
-          if @listings
+          if !@listings.empty?
             format.html {render action: 'index'}
             format.json { render json: @listings, status: :unprocessable_entity }
           else
-            format.html {render action: 'index', notice: 'No search found.'}
-            format.json { render json: @listings, status: :unprocessable_entity }
+            
+            format.html { redirect_to root_url, notice: "Listing not found" }
+            format.json { render action: 'index', status: :created }
           end
         end
       end
@@ -30,6 +31,7 @@ class ListingsController < ApplicationController
   # GET /listings.json
   def index
     @listings = Listing.all.order("created_at DESC")
+    #@listings = Listing.paginate(:page => params[:page], :per_page => 1).where(user: current_user).order("created_at DESC")
   end
 
   # GET /listings/1
@@ -71,6 +73,7 @@ class ListingsController < ApplicationController
         format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
         format.json { render action: 'show', status: :created, location: @listing }
       else
+      
         format.html { render action: 'new' }
         format.json { render json: @listing.errors, status: :unprocessable_entity }
       end
